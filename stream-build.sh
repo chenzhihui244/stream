@@ -20,4 +20,9 @@ fi
 cd lmbench-3.0-a9
 sed -i s/-O\ /-O2\ /g src/Makefile
 
+ARCH=`uname -m`
+if [ $ARCH == "x86_64" ]; then
+make
+elif [ $ARCH == "aarch64" ]; then
 make OS=lmbench
+fi
